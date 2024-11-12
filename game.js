@@ -1,5 +1,6 @@
 const buttonColours = ["red", "blue", "green", "yellow"];
 const gamePattern = [];
+const userClickedPattern = [];
 
 function nextSequence() {
     const randomNumber = Math.floor(Math.random() * 4);
@@ -15,3 +16,11 @@ function nextSequence() {
 }
 
 $("#test").on("click", nextSequence);
+
+// 버튼 클릭 감지
+$(".btn").on("click", (event) => {
+    console.log(event.target.id);
+    const userChosenColor = event.target.id;
+    userClickedPattern.push(userChosenColor);
+    console.log(userClickedPattern);
+});
