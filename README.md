@@ -1,0 +1,1 @@
+Simon game implemented using jQuery
