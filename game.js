@@ -1,6 +1,7 @@
 const buttonColours = ["red", "blue", "green", "yellow"];
 const gamePattern = [];
 const userClickedPattern = [];
+let level = 0;
 
 function playSound(name) {
     const color = new Audio(`./sounds/${name}.mp3`);
@@ -16,6 +17,7 @@ function nextSequence() {
     $(`#${randomChosenColour}`).fadeIn();
 
     playSound(randomChosenColour);
+    $("#level-title").text(`Level ${level++}`);
 }
 
 function animatePress(currentColor) {
@@ -35,3 +37,5 @@ $(".btn").on("click", (event) => {
 
     playSound(userChosenColor);
 });
+
+$(document).on("keydown", nextSequence);
